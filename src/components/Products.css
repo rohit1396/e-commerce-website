@@ -1,0 +1,16 @@
+.products {
+  display: flex;
+  flex-direction: column;
+  max-width: 1000px;
+}
+
+.product_item {
+  display: flex;
+  padding-left: 150px;
+}
+
+.product_img {
+  width: 250px;
+  min-height: 200px;
+  object-fit: contain;
+}
