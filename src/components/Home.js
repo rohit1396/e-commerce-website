@@ -1,6 +1,9 @@
 import React from "react";
 import "./Home.css";
-import { data } from "../data";
+import data from "../data.json";
+import FeaturedProduct from "./FeaturedProduct";
+import Categories from "./Categories";
+import { Link } from "react-router-dom";
 
 const Home = () => {
   return (
@@ -15,7 +18,9 @@ const Home = () => {
             just one simple Click.
           </p>
           <p>Fetch Products Of different category </p>
-          <button className="home_shopButton">Shop Now</button>
+          <Link to="/products">
+            <button className="home_shopButton">Shop Now</button>
+          </Link>
         </div>
         <img
           className="home_img"
@@ -23,6 +28,8 @@ const Home = () => {
           alt=""
         />
       </div>
+      <FeaturedProduct data={data} />
+      <Categories data={data} />
     </div>
   );
 };

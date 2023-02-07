@@ -1,24 +1,22 @@
 .home {
-  /* width: 100%; */
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  /* align-items: center;
-  text-align: center;
-  padding: 40px; */
 }
 
 .home_container {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  text-align: center;
+  /* text-align: center; */
   padding: 40px;
 }
 
 .home_about {
   max-width: 450px;
-  line-height: 30px;
+  line-height: 40px;
+  /* position: relative; */
+  top: 30px;
 }
 
 .home_about > h1 {
@@ -34,16 +32,17 @@
 
 .home_about > p {
   word-spacing: 5px;
-  letter-spacing: 2px;
-  margin: 5px;
+  letter-spacing: 3px;
+  /* margin: 10px; */
   font-weight: 500;
+  font-size: 25px;
 }
 
 .home_shopButton {
   width: 150px;
   padding: 10px;
   margin-top: 25px;
-  border-radius: 25px;
+  border-radius: 5px;
   background-color: #b84dff;
   color: white;
   font-weight: 500;
