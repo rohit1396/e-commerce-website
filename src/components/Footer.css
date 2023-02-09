@@ -1,0 +1,25 @@
+.footer {
+  position: relative;
+  top: 50px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 70px;
+  background-color: rgb(41, 38, 38);
+  color: white;
+  font-size: 20px;
+  font-weight: 500;
+  z-index: 8;
+}
+
+.footer_header > span {
+  color: rgba(231, 86, 2, 0.856);
+}
+
+/* ************************** Media Queries ****************************** */
+
+@media only screen and (max-width: 650px) {
+  .footer {
+    font-size: 15px;
+  }
+}
