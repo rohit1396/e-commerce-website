@@ -23,7 +23,7 @@
 .nav_links {
   display: flex;
   flex: 0.4;
-  justify-content: space-evenly;
+  justify-content: space-between;
 }
 
 .nav_links_hidden {

@@ -4,6 +4,7 @@ import "./App.css";
 import Footer from "./components/Footer";
 import Home from "./components/Home";
 import Navbar from "./components/Navbar";
+import ProductDetails from "./components/ProductDetails";
 import Products from "./components/Products";
 
 function App() {
@@ -26,6 +27,16 @@ function App() {
             <>
               <Navbar />
               <Products />
+              <Footer />
+            </>
+          }
+        />
+        <Route
+          path="/products/productdetails/:productId"
+          element={
+            <>
+              <Navbar />
+              <ProductDetails />
               <Footer />
             </>
           }
