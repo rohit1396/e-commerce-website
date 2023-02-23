@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
+import { ProductValue } from "../ProductContext";
 import "./ProductDetails.css";
 
 const ProductDetails = () => {
@@ -8,6 +9,7 @@ const ProductDetails = () => {
   // console.log(productId);
 
   const [productData, setProductData] = useState([]);
+  const [{}, dispatch] = ProductValue();
 
   useEffect(() => {
     const getProducts = async () => {
@@ -25,9 +27,29 @@ const ProductDetails = () => {
     };
     getProducts();
   }, []);
+
+  const addToCart = () => {
+    dispatch({
+      type: "ADD_TO_CART",
+      item: {
+        id: productData.id,
+        image: productData.image,
+        title: productData.title,
+        description: productData.description,
+        price: productData.price,
+        category: productData.category,
+      },
+    });
+  };
   return (
     <div className="productDetails">
       <h1>Product Details</h1>
+      {productData.length !== 0 && (
+        <Link to="/products">
+          <button className="backButton">Back To Products</button>
+        </Link>
+      )}
+
       {productData.length === 0 ? (
         <h1>Loading...</h1>
       ) : (
@@ -46,8 +68,10 @@ const ProductDetails = () => {
             </p>
             {/* <p>{productData.rating.rate}</p> */}
             {/* <p>{productData.rating.count}</p> */}
-            <Link to="/products">
-              <button>Add To Cart</button>
+            <Link to="/checkout">
+              <button className="addButton" onClick={addToCart}>
+                Add To Cart
+              </button>
             </Link>
           </div>
         </div>

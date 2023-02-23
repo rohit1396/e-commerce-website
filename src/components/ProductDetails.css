@@ -10,6 +10,19 @@
   border-bottom: 1px solid gray;
 }
 
+.backButton {
+  margin-top: 20px;
+  margin-left: 40px;
+  padding: 10px;
+  font-size: 15px;
+  border-radius: 5px;
+  border: none;
+  background-color: #b84dff;
+  color: white;
+  cursor: pointer;
+  width: max-content;
+}
+
 .productDetails_content {
   margin-top: 20px;
   display: flex;
@@ -58,4 +71,15 @@
 .productDetails_category {
   font-size: 25px;
   font-weight: 500;
+}
+
+.addButton {
+  padding: 10px;
+  font-size: 15px;
+  border-radius: 5px;
+  border: none;
+  background-color: #b84dff;
+  color: white;
+  cursor: pointer;
+  width: max-content;
 }
