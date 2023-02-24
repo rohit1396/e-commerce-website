@@ -1,3 +1,37 @@
 .checkout {
-  height: 100vh;
+  min-height: 100vh;
+}
+
+.empty_cart {
+  margin-top: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  text-align: center;
+}
+
+.checkout > div > h2 {
+  font-size: 20px;
+  font-weight: 500;
+  margin: 10px 0;
+}
+
+.checkout > div > p {
+  font-size: 20px;
+  font-weight: 500;
+  margin: 10px 0;
+}
+
+.checkout_addItem {
+  margin-top: 10px;
+
+  padding: 10px;
+  font-size: 15px;
+  border-radius: 5px;
+  border: none;
+  background-color: #b84dff;
+  color: white;
+  cursor: pointer;
+  width: max-content;
 }
