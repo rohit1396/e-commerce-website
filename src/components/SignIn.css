@@ -1,0 +1,50 @@
+.signin {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* padding-top: 100px; */
+  background-image: url("../../public/Images/low-poly-grid-haikei.svg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.signin_form {
+  display: flex;
+  flex-direction: column;
+  width: 350px;
+  border: 2px solid rgb(0, 0, 0);
+  border-radius: 5px;
+  padding: 25px;
+  background-color: white;
+}
+
+.signin_form > h3 {
+  margin: 10px 0;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.signin_form > input {
+  padding: 10px 10px;
+  font-size: 20px;
+  font-weight: 500;
+  outline: none;
+}
+
+.signin_form > p > a {
+  color: #b84dff;
+}
+
+.signin_button {
+  width: 100%;
+  margin: 10px 0;
+  padding: 10px;
+  background-color: #b84dff;
+  color: white;
+  font-size: 18px;
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
+}
