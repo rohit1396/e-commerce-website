@@ -29,6 +29,7 @@ const Checkout = () => {
         </div>
       ) : (
         <div>
+          <h1>Your Product's</h1>
           {ProductCart.map((product) => (
             <CheckoutProduct key={product.id} product={product} />
           ))}

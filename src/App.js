@@ -7,6 +7,8 @@ import Home from "./components/Home";
 import Navbar from "./components/Navbar";
 import ProductDetails from "./components/ProductDetails";
 import Products from "./components/Products";
+import SignIn from "./components/SignIn";
+import SignUp from "./components/SignUp";
 
 function App() {
   return (
@@ -49,6 +51,23 @@ function App() {
               <Navbar />
               <Checkout />
               <Footer />
+            </>
+          }
+        />
+        <Route
+          path="/signin"
+          element={
+            <>
+              <Navbar />
+              <SignIn />
+            </>
+          }
+        />
+        <Route
+          path="/signup"
+          element={
+            <>
+              <SignUp />
             </>
           }
         />

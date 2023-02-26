@@ -11,6 +11,13 @@
   text-align: center;
 }
 
+.checkout > div > h1 {
+  font-size: 20px;
+  font-weight: 500;
+  margin-top: 20px;
+  margin-left: 30px;
+}
+
 .checkout > div > h2 {
   font-size: 20px;
   font-weight: 500;
