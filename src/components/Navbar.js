@@ -1,10 +1,23 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { ProductValue } from "../ProductContext";
+import { UserAuth } from "../UserContext";
 import "./Navbar.css";
 
 const Navbar = () => {
   const [toggle, setToggle] = useState(false);
+  const { user, logout } = UserAuth();
+  const navigate = useNavigate();
+
+  const handleLogout = async () => {
+    try {
+      await logout();
+      navigate("/");
+    } catch (e) {
+      console.log(e.message);
+    }
+  };
+
   console.log(toggle);
   return (
     <div className="navbar">
@@ -42,21 +55,28 @@ const Navbar = () => {
             </svg>
           </span>
         </Link>
-        <Link to="/signin">
-          <span className="nav_link">
-            {/* Login */}
-            <svg
-              width={35}
-              height={35}
-              fill="#ffffff"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path d="M15.592 3.027C14.68 2.042 13.406 1.5 12 1.5c-1.414 0-2.692.54-3.6 1.518-.918.99-1.365 2.334-1.26 3.786C7.348 9.67 9.528 12 12 12c2.472 0 4.648-2.33 4.86-5.195.106-1.439-.344-2.78-1.268-3.778Z" />
-              <path d="M20.25 22.5H3.75a1.454 1.454 0 0 1-1.134-.522 1.655 1.655 0 0 1-.337-1.364c.396-2.195 1.63-4.038 3.571-5.333C7.574 14.132 9.758 13.5 12 13.5c2.242 0 4.426.633 6.15 1.781 1.94 1.294 3.176 3.138 3.571 5.332.091.503-.032 1-.336 1.365a1.453 1.453 0 0 1-1.135.522Z" />
-            </svg>
-          </span>
-        </Link>
+        {user ? (
+          <>
+            <p>{user.email}</p>
+            <p onClick={handleLogout}>Sign Out</p>
+          </>
+        ) : (
+          <Link to="/signin">
+            <span className="nav_link">
+              {/* Login */}
+              <svg
+                width={35}
+                height={35}
+                fill="#ffffff"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path d="M15.592 3.027C14.68 2.042 13.406 1.5 12 1.5c-1.414 0-2.692.54-3.6 1.518-.918.99-1.365 2.334-1.26 3.786C7.348 9.67 9.528 12 12 12c2.472 0 4.648-2.33 4.86-5.195.106-1.439-.344-2.78-1.268-3.778Z" />
+                <path d="M20.25 22.5H3.75a1.454 1.454 0 0 1-1.134-.522 1.655 1.655 0 0 1-.337-1.364c.396-2.195 1.63-4.038 3.571-5.333C7.574 14.132 9.758 13.5 12 13.5c2.242 0 4.426.633 6.15 1.781 1.94 1.294 3.176 3.138 3.571 5.332.091.503-.032 1-.336 1.365a1.453 1.453 0 0 1-1.135.522Z" />
+              </svg>
+            </span>
+          </Link>
+        )}
       </div>
       <div className="navbar_menu">
         <svg

@@ -1,14 +1,26 @@
-import React, { useRef, useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { UserAuth } from "../UserContext";
 import "./SignIn.css";
 
 const SignIn = () => {
+  const { loginUser } = UserAuth();
   const [email, SetEmail] = useState("");
   const [password, SetPassword] = useState("");
-  const inputRef = useRef(null);
+  const [error, SetError] = useState("");
+  const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    SetError("");
+    try {
+      await loginUser(email, password);
+      navigate("/");
+    } catch (e) {
+      SetError(e.message);
+      alert(e);
+      console.log(e.message);
+    }
   };
 
   return (
@@ -17,7 +29,6 @@ const SignIn = () => {
         <h3>User Id</h3>
         <input
           type="text"
-          ref={inputRef}
           placeholder="Email-id"
           value={email}
           onChange={(e) => {
@@ -27,7 +38,6 @@ const SignIn = () => {
         <h3>Password</h3>
         <input
           type="password"
-          ref={inputRef}
           placeholder="Password"
           value={password}
           onChange={(e) => SetPassword(e.target.value)}
