@@ -9,6 +9,7 @@ const ProductDetails = () => {
   // console.log(productId);
 
   const [productData, setProductData] = useState([]);
+  const [readMore, setReadMore] = useState(false);
   const [{}, dispatch] = ProductValue();
 
   useEffect(() => {
@@ -60,7 +61,13 @@ const ProductDetails = () => {
           <div className="productDetails_info">
             <p className="productDetails_title">Title : {productData.title}</p>
             <p className="productDetails_description">
-              Description : {productData.description}
+              Description :{" "}
+              {readMore
+                ? productData.description
+                : `${productData.description.substring(0, 200)} ...`}
+              <span className="readmore" onClick={() => setReadMore(!readMore)}>
+                {readMore ? "show Less" : "Read more"}
+              </span>
             </p>
             <p className="productDetails_price">Price : ${productData.price}</p>
             <p className="productDetails_category">

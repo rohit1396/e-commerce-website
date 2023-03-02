@@ -1,6 +1,6 @@
 import React from "react";
 import "./Home.css";
-import data from "../data.json";
+import data from "../data";
 import FeaturedProduct from "./FeaturedProduct";
 import Categories from "./Categories";
 import { Link } from "react-router-dom";

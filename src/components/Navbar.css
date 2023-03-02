@@ -34,6 +34,18 @@
   margin-right: 10px;
 }
 
+.nav_user {
+  display: flex !important;
+  flex-direction: column;
+  align-items: center;
+}
+
+.nav_user > p {
+  font-size: 18px !important;
+  margin: 1px 0;
+  cursor: pointer;
+}
+
 .navbar_menu {
   display: none;
 }

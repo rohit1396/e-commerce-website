@@ -56,10 +56,10 @@ const Navbar = () => {
           </span>
         </Link>
         {user ? (
-          <>
+          <div className="nav_user">
             <p>{user.email}</p>
             <p onClick={handleLogout}>Sign Out</p>
-          </>
+          </div>
         ) : (
           <Link to="/signin">
             <span className="nav_link">
