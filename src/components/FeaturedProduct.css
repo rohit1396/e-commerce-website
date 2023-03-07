@@ -9,6 +9,7 @@
 .featured_product > h1 {
   /* padding-left: 40px; */
   width: max-content;
+  /* margin: auto; */
   text-align: center;
   font-weight: 400;
   margin-bottom: 25px;
@@ -38,4 +39,18 @@
 
 .featured_img > a > img:hover {
   transform: scale(1.08);
+}
+
+/* *********************** Media Queries ************************ */
+
+@media only screen and (max-width: 400px) {
+  .featured_img > a > img {
+    width: 250px;
+    height: 200px;
+    margin: 10px auto;
+  }
+  .featured_product > h1 {
+    font-size: 25px;
+    margin: 25px auto;
+  }
 }
