@@ -10,6 +10,10 @@
   border-bottom: 1px solid gray;
 }
 
+.productDetails > a {
+  width: fit-content;
+}
+
 .backButton {
   margin-top: 20px;
   margin-left: 40px;
@@ -53,6 +57,10 @@
   margin-bottom: 10px;
 }
 
+.productDetails_info > a {
+  width: fit-content;
+}
+
 .productDetails_title {
   font-size: 25px;
   font-weight: 500;
@@ -77,6 +85,7 @@
 .productDetails_category {
   font-size: 25px;
   font-weight: 500;
+  text-transform: capitalize;
 }
 
 .addButton {
@@ -88,4 +97,62 @@
   color: white;
   cursor: pointer;
   width: max-content;
+}
+
+/* ******************************* Media Queries **************************** */
+
+@media only screen and (max-width: 650px) {
+  .productDetails_content {
+    flex-direction: column;
+  }
+  .productDetails_info {
+    margin: 40px 20px;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .productDetails > h1 {
+    padding: 40px 0 20px 40px;
+    font-size: 22px;
+    font-weight: 500;
+  }
+
+  .productDetails_img {
+    margin: 20px auto;
+  }
+
+  .productDetails_img > img {
+    width: 250px;
+    height: 250px;
+    padding: 15px;
+  }
+}
+
+@media (min-width: 401px) and (max-width: 650px) {
+  .productDetails_img {
+    margin: 40px auto;
+  }
+  .productDetails_img > img {
+    width: 300px;
+    height: 300px;
+  }
+}
+
+@media (min-width: 651px) and (max-width: 776px) {
+  .productDetails_img {
+    margin: 20px;
+    height: fit-content;
+  }
+
+  .productDetails_img > img {
+    width: 250px;
+    height: 250px;
+    padding: 15px;
+  }
+
+  .productDetails_info {
+    display: flex;
+    flex-direction: column;
+    margin: 40px 20px;
+  }
 }
