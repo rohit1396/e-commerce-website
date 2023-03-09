@@ -72,6 +72,7 @@
     height: 50vh;
     background-color: #b84dff;
     border-top: 2px solid white;
-    transition: 200ms;
+    transition-timing-function: ease-in-out;
+    transition: 300ms;
   }
 }
