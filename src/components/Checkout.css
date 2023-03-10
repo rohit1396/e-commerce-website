@@ -12,10 +12,10 @@
 }
 
 .checkout > div > h1 {
-  font-size: 20px;
+  font-size: 25px;
   font-weight: 500;
-  margin-top: 20px;
-  margin-left: 30px;
+  max-width: 200px;
+  margin: 10px auto;
 }
 
 .checkout > div > h2 {
@@ -32,7 +32,6 @@
 
 .checkout_addItem {
   margin-top: 10px;
-
   padding: 10px;
   font-size: 15px;
   border-radius: 5px;
