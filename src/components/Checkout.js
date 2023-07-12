@@ -5,15 +5,8 @@ import CheckoutProduct from "./CheckoutProduct";
 import { Link } from "react-router-dom";
 
 const Checkout = () => {
-  const [{ ProductCart }, dispatch] = ProductValue();
-  console.log(ProductCart);
+  const { ProductCart } = ProductValue();
 
-  const removeItem = (id) => {
-    dispatch({
-      type: "REMOVE_FROM_CART",
-      id,
-    });
-  };
   return (
     <div className="checkout">
       {ProductCart?.length === 0 ? (

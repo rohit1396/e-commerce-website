@@ -6,11 +6,10 @@ import "./ProductDetails.css";
 
 const ProductDetails = () => {
   const { productId } = useParams();
-  // console.log(productId);
 
   const [productData, setProductData] = useState([]);
   const [readMore, setReadMore] = useState(false);
-  const [{}, dispatch] = ProductValue();
+  const { addToCart } = ProductValue();
 
   useEffect(() => {
     const getProducts = async () => {
@@ -29,19 +28,20 @@ const ProductDetails = () => {
     getProducts();
   }, []);
 
-  const addToCart = () => {
-    dispatch({
-      type: "ADD_TO_CART",
-      item: {
-        id: productData.id,
-        image: productData.image,
-        title: productData.title,
-        description: productData.description,
-        price: productData.price,
-        category: productData.category,
-      },
-    });
-  };
+  // const addToCart = () => {
+  //   dispatch({
+  //     type: "ADD_TO_CART",
+  //     item: {
+  //       id: productData.id,
+  //       image: productData.image,
+  //       title: productData.title,
+  //       description: productData.description,
+  //       price: productData.price,
+  //       category: productData.category,
+  //       amount: 1,
+  //     },
+  //   });
+  // };
   return (
     <div className="productDetails">
       <h1>Product Details</h1>
@@ -76,7 +76,10 @@ const ProductDetails = () => {
             {/* <p>{productData.rating.rate}</p> */}
             {/* <p>{productData.rating.count}</p> */}
             <Link to="/checkout">
-              <button className="addButton" onClick={addToCart}>
+              <button
+                className="addButton"
+                onClick={() => addToCart(productData)}
+              >
                 Add To Cart
               </button>
             </Link>

@@ -4,14 +4,7 @@ import "./CheckoutProduct.css";
 
 const CheckoutProduct = ({ product }) => {
   const [readMore, setReadMore] = useState(false);
-  const [{}, dispatch] = ProductValue();
-
-  const removeItem = (id) => {
-    dispatch({
-      type: "REMOVE_FROM_CART",
-      id,
-    });
-  };
+  const { removeFromCart } = ProductValue();
 
   return (
     <div className="checkoutProduct">
@@ -31,7 +24,7 @@ const CheckoutProduct = ({ product }) => {
         </p>
         <p className="checkoutProduct_category">Category: {product.category}</p>
         <p className="checkoutProduct_price">Price : ${product.price}</p>
-        <button onClick={() => removeItem(product.id)}>Remove Item</button>
+        <button onClick={() => removeFromCart(product.id)}>Remove Item</button>
       </div>
     </div>
   );

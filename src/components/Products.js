@@ -2,22 +2,32 @@ import React, { useEffect, useState } from "react";
 import "./Products.css";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import FilterButton from "../FilterButton";
 
-const Products = () => {
-  const [productData, setProductData] = useState([]);
+const Products = ({ data }) => {
+  console.log(data);
+  // const [toggle, setToggle] = useState(false)
+  // const allCategories = ["all", ...new Set(data.map((item) => item.category))];
+  const [productData, setProductData] = useState(data);
+  // const [categories, setCategories] = useState(allCategories);
+  // console.log(categories);
 
-  useEffect(() => {
-    const getProducts = async () => {
-      const request = await axios.get("https://fakestoreapi.com/products");
-      console.log(request);
-      setProductData(request.data);
-      console.log(productData);
-    };
-    getProducts();
-  }, []);
+  // useEffect(() => {
+  //   setProductData([]);
+  // }, []);
+
+  // const filterItems = (category) => {
+  //   if (category === "all") {
+  //     setProductData(productData);
+  //     return data;
+  //   }
+  //   const newItems = productData.filter((item) => item.category === category);
+  //   setProductData(newItems);
+  // };
 
   return (
     <div className="products">
+      {/* <FilterButton categories={categories} filterItems={filterItems} /> */}
       <p>{productData.length} products found</p>
       <div className="product_items">
         {productData.map((item) => (

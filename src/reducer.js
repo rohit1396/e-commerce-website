@@ -1,24 +1,21 @@
-export const initialState = {
-  ProductCart: [],
-};
-
 const reducer = (state, action) => {
   console.log(action);
-  switch (action.type) {
-    case "ADD_TO_CART":
-      return {
-        ...state,
-        ProductCart: [...state.ProductCart, action.item],
-      };
-    case "REMOVE_FROM_CART":
-      return {
-        ...state,
-        ProductCart: state.ProductCart.filter((item) => item.id !== action.id),
-      };
-      break;
-    default:
-      return state;
+  console.log(state);
+  if (action.type === "ADD_TO_CART") {
+    return {
+      ...state,
+      ProductCart: [...state.ProductCart, action.productData],
+    };
   }
+  if (action.type === "REMOVE_FROM_CART") {
+    return {
+      ...state,
+      ProductCart: state.ProductCart.filter(
+        (item) => item.id !== action.payload
+      ),
+    };
+  }
+  throw new Error("no matching action type");
 };
 
 export default reducer;
