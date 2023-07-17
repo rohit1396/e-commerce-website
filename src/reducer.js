@@ -4,7 +4,7 @@ const reducer = (state, action) => {
   if (action.type === "ADD_TO_CART") {
     return {
       ...state,
-      ProductCart: [...state.ProductCart, action.productData],
+      ProductCart: [...state.ProductCart, action.payload],
     };
   }
   if (action.type === "REMOVE_FROM_CART") {
@@ -14,6 +14,13 @@ const reducer = (state, action) => {
         (item) => item.id !== action.payload
       ),
     };
+  }
+  if (action.type === "LOADING") {
+    return { ...state, loading: true };
+  }
+
+  if (action.type === "DISPLAY_PRODUCTS") {
+    return { ...state, cart: action.payload, loading: false };
   }
   throw new Error("no matching action type");
 };

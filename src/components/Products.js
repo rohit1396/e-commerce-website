@@ -3,31 +3,27 @@ import "./Products.css";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import FilterButton from "../FilterButton";
+import { ProductValue } from "../ProductContext";
 
-const Products = ({ data }) => {
-  console.log(data);
-  // const [toggle, setToggle] = useState(false)
-  // const allCategories = ["all", ...new Set(data.map((item) => item.category))];
-  const [productData, setProductData] = useState(data);
-  // const [categories, setCategories] = useState(allCategories);
-  // console.log(categories);
+const Products = () => {
+  const { cart } = ProductValue();
 
-  // useEffect(() => {
-  //   setProductData([]);
-  // }, []);
+  const [productData, setProductData] = useState(cart);
 
-  // const filterItems = (category) => {
-  //   if (category === "all") {
-  //     setProductData(productData);
-  //     return data;
-  //   }
-  //   const newItems = productData.filter((item) => item.category === category);
-  //   setProductData(newItems);
-  // };
+  const allCategories = ["all", ...new Set(cart.map((item) => item.category))];
+
+  const filterItems = (category) => {
+    if (category === "all") {
+      setProductData(cart);
+      return;
+    }
+    const newItems = cart.filter((item) => item.category === category);
+    setProductData(newItems);
+  };
 
   return (
     <div className="products">
-      {/* <FilterButton categories={categories} filterItems={filterItems} /> */}
+      <FilterButton categories={allCategories} filterItems={filterItems} />
       <p>{productData.length} products found</p>
       <div className="product_items">
         {productData.map((item) => (

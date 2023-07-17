@@ -1,6 +1,7 @@
-import React, { createContext, useContext, useReducer } from "react";
+import React, { createContext, useContext, useReducer, useEffect } from "react";
 import reducer from "./reducer";
 
+const url = "https://fakestoreapi.com/products";
 const ProductContext = createContext();
 
 const initialState = {
@@ -19,6 +20,18 @@ export const ProductProvider = ({ children }) => {
   const removeFromCart = (id) => {
     dispatch({ type: "REMOVE_FROM_CART", payload: id });
   };
+
+  const getProducts = async () => {
+    dispatch({ type: "LOADING" });
+    const response = await fetch(url);
+    const cart = await response.json();
+    dispatch({ type: "DISPLAY_PRODUCTS", payload: cart });
+  };
+
+  useEffect(() => {
+    getProducts();
+  }, []);
+
   return (
     <ProductContext.Provider value={{ ...state, addToCart, removeFromCart }}>
       {children}

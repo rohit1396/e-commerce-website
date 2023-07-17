@@ -23,15 +23,15 @@ function App() {
   // const [categories, setCategories] = useState(allCategories);
   // console.log(categories);
 
-  useEffect(() => {
-    const getProducts = async () => {
-      const request = await axios.get("https://fakestoreapi.com/products");
-      console.log(request);
-      setMenuItems(request.data);
-      console.log(MenuItems);
-    };
-    getProducts();
-  }, []);
+  // useEffect(() => {
+  //   const getProducts = async () => {
+  //     const request = await axios.get("https://fakestoreapi.com/products");
+  //     console.log(request);
+  //     setMenuItems(request.data);
+  //     console.log(MenuItems);
+  //   };
+  //   getProducts();
+  // }, []);
 
   // const filterItems = (category) => {
   //   if (category === "all") {
