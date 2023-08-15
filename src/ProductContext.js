@@ -8,6 +8,7 @@ const initialState = {
   loading: false,
   ProductCart: [],
   cart: [],
+  totalPrice: 0,
 };
 
 export const ProductProvider = ({ children }) => {
@@ -21,6 +22,10 @@ export const ProductProvider = ({ children }) => {
     dispatch({ type: "REMOVE_FROM_CART", payload: id });
   };
 
+  const clearCart = () => {
+    dispatch({ type: "CLEAR_CART" });
+  };
+
   const getProducts = async () => {
     dispatch({ type: "LOADING" });
     const response = await fetch(url);
@@ -32,8 +37,13 @@ export const ProductProvider = ({ children }) => {
     getProducts();
   }, []);
 
+  useEffect(() => {
+    dispatch({ type: "GET_TOTAL" });
+  }, [state.ProductCart]);
+
   return (
-    <ProductContext.Provider value={{ ...state, addToCart, removeFromCart }}>
+    <ProductContext.Provider
+      value={{ ...state, addToCart, removeFromCart, clearCart }}>
       {children}
     </ProductContext.Provider>
   );
