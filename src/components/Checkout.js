@@ -5,7 +5,7 @@ import CheckoutProduct from "./CheckoutProduct";
 import { Link } from "react-router-dom";
 
 const Checkout = () => {
-  const { ProductCart } = ProductValue();
+  const { totalPrice, ProductCart, clearCart } = ProductValue();
 
   return (
     <div className="checkout">
@@ -26,6 +26,12 @@ const Checkout = () => {
           {ProductCart.map((product) => (
             <CheckoutProduct key={product.id} product={product} />
           ))}
+          <div className="productcart_details">
+            <span className="cart_amount">{`Total Amount : $ ${totalPrice.totalPrice}`}</span>
+            <button className="clear_button" onClick={clearCart}>
+              Clear cart
+            </button>
+          </div>
         </div>
       )}
     </div>
