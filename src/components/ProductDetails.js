@@ -5,8 +5,8 @@ import { ProductValue } from "../ProductContext";
 import "./ProductDetails.css";
 
 const ProductDetails = () => {
-  const { productId } = useParams();
 
+  const { productId } = useParams();
   const [productData, setProductData] = useState([]);
   const [readMore, setReadMore] = useState(false);
   const { addToCart } = ProductValue();
@@ -28,20 +28,6 @@ const ProductDetails = () => {
     getProducts();
   }, []);
 
-  // const addToCart = () => {
-  //   dispatch({
-  //     type: "ADD_TO_CART",
-  //     item: {
-  //       id: productData.id,
-  //       image: productData.image,
-  //       title: productData.title,
-  //       description: productData.description,
-  //       price: productData.price,
-  //       category: productData.category,
-  //       amount: 1,
-  //     },
-  //   });
-  // };
   return (
     <div className="productDetails">
       <h1>Product Details</h1>
@@ -73,8 +59,6 @@ const ProductDetails = () => {
             <p className="productDetails_category">
               Category : {productData.category}
             </p>
-            {/* <p>{productData.rating.rate}</p> */}
-            {/* <p>{productData.rating.count}</p> */}
             <Link to="/checkout">
               <button
                 className="addButton"
