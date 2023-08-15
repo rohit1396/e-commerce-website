@@ -1,0 +1,22 @@
+.filterbutton {
+  max-width: 900px;
+  margin: 20px auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+}
+
+.filterbutton > button {
+  padding: 7px 10px;
+  margin: 10px 25px;
+  background-color: #b84dff;
+  color: white;
+  font-size: 12px;
+  font-weight: 500;
+  text-transform: capitalize;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+}
