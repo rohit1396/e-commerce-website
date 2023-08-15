@@ -20,6 +20,7 @@ const SignIn = () => {
       SetError(e.message);
       alert(e);
       console.log(e.message);
+      console.log(error);
     }
   };
 

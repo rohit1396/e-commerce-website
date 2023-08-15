@@ -5,7 +5,6 @@ import { ProductValue } from "../ProductContext";
 import "./ProductDetails.css";
 
 const ProductDetails = () => {
-
   const { productId } = useParams();
   const [productData, setProductData] = useState([]);
   const [readMore, setReadMore] = useState(false);
@@ -26,7 +25,7 @@ const ProductDetails = () => {
       setProductData(request.data);
     };
     getProducts();
-  }, []);
+  }, [productId]);
 
   return (
     <div className="productDetails">
@@ -62,8 +61,7 @@ const ProductDetails = () => {
             <Link to="/checkout">
               <button
                 className="addButton"
-                onClick={() => addToCart(productData)}
-              >
+                onClick={() => addToCart(productData)}>
                 Add To Cart
               </button>
             </Link>

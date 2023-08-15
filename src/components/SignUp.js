@@ -18,8 +18,9 @@ const SignUp = () => {
       navigate("/signin");
     } catch (e) {
       SetError(e.message);
-      console.log(e.message);
       alert(e);
+      console.log(e.message);
+      console.log(error);
     }
   };
 
