@@ -34,10 +34,11 @@
   height: 225px;
   object-fit: contain;
   padding: 20px;
-  border: 1px solid gray;
+  border: none;
   border-radius: 2px;
   background-color: white;
   margin: 10px;
+  box-shadow: 5px 5px 15px rgba(214, 201, 124, 0.651);
   transition: transform 450ms;
 }
 
